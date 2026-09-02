@@ -1,23 +1,33 @@
 # Walmart Sales Forecasting
 
-An exploratory Walmart sales forecasting project built with Python and Jupyter. The notebook loads store, feature, training, and test data for analysis and model development.
+A Python and Jupyter notebook for loading and inspecting Walmart sales data. The current notebook prepares the datasets for further transformation and forecasting work.
 
-## Project files
+## What the notebook does
 
-- `Notebook.ipynb`: data loading, transformation, and forecasting analysis
-- `Data/features.csv`: weekly store features and external indicators
-- `Data/stores.csv`: store metadata and store types
-- `Data/train.csv`: historical weekly sales used for training
-- `Data/test.csv`: dates and stores reserved for predictions
+1. Imports `pandas`, `numpy`, and `pathlib`.
+2. Loads the features, stores, test, and training CSV files.
+3. Prints the shape of each loaded dataset.
+4. Displays the features dataset schema with `features.info()`.
+5. Converts the features `Date` column to pandas datetime values.
+
+The notebook currently focuses on data extraction and initial transformation. A forecasting model has not yet been added.
+
+## Files
+
+- `Notebook.ipynb`: notebook containing the data-loading and transformation code
+- `features.csv`: feature data, including the `Date` column
+- `stores.csv`: store data
+- `test.csv`: test data
+- `train.csv`: training data
 
 ## Requirements
 
 - Python 3.9 or newer
 - pandas
 - numpy
-- Jupyter or VS Code with the Jupyter extension
+- Jupyter, or VS Code with the Jupyter extension
 
-Install the dependencies with:
+Install the dependencies:
 
 ```bash
 python -m pip install pandas numpy jupyter
@@ -26,11 +36,19 @@ python -m pip install pandas numpy jupyter
 ## Run the notebook
 
 1. Open `Notebook.ipynb` in Jupyter or VS Code.
-2. Select the project Python environment as the notebook kernel.
+2. Select a Python environment with the required packages.
 3. Run the cells from top to bottom.
 
-The loader checks for a `Data/` directory first and falls back to the repository root, so the notebook works with both the local project layout and the uploaded repository layout.
+The loader looks for CSV files inside `Data/` first. If that directory is not present, it loads the files from the repository root.
 
-## Data note
+## Data layout
 
-Review the licensing and privacy requirements for the included CSV files before redistribution.
+For the local project layout, place the CSV files in a `Data/` directory:
+
+```text
+Data/
+├── features.csv
+├── stores.csv
+├── test.csv
+└── train.csv
+```
