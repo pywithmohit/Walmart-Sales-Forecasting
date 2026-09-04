@@ -1,6 +1,6 @@
 # Walmart Sales Forecasting
 
-A Python and Jupyter notebook for loading and inspecting Walmart sales data. The current notebook prepares the datasets for further transformation and forecasting work.
+A Python and Jupyter notebook for cleaning, combining, and exploring Walmart weekly sales data. The current notebook prepares the merged dataset and visualizes total sales over time as a foundation for forecasting work.
 
 ## What the notebook does
 
@@ -8,13 +8,22 @@ A Python and Jupyter notebook for loading and inspecting Walmart sales data. The
 2. Loads the features, stores, test, and training CSV files.
 3. Prints the shape of each loaded dataset.
 4. Displays the features dataset schema with `features.info()`.
-5. Converts the features `Date` column to pandas datetime values.
+5. Converts the `Date` columns to pandas datetime values.
+6. Fills missing markdown, CPI, and unemployment values in the features data.
+7. Merges store and feature data with the training sales data.
+8. Compares holiday and non-holiday sales and summarizes sales by store type.
+9. Aggregates weekly sales by date and saves the trend chart to `weekly sales trend.png`.
 
-The notebook currently focuses on data extraction and initial transformation. A forecasting model has not yet been added.
+The notebook currently focuses on data preparation and exploratory data analysis. A forecasting model has not yet been added.
+
+## Sales trend
+
+![Total weekly sales over time](weekly%20sales%20trend.png)
 
 ## Files
 
 - `Notebook.ipynb`: notebook containing the data-loading and transformation code
+- `weekly sales trend.png`: generated chart of total weekly sales over time
 - `features.csv`: feature data, including the `Date` column
 - `stores.csv`: store data
 - `test.csv`: test data
