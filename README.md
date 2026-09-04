@@ -1,119 +1,63 @@
 # Walmart Sales Forecasting
 
-A data science project focused on understanding and forecasting weekly sales for Walmart stores using a structured retail dataset. This repository includes a Jupyter notebook for exploratory data analysis (EDA), dataset preparation, and early modeling groundwork.
+A Python and Jupyter notebook for cleaning, combining, and exploring Walmart weekly sales data. The current notebook prepares the merged dataset and visualizes total sales over time as a foundation for forecasting work.
 
-## Project Overview
+## What the notebook does
 
-The project uses the Walmart sales forecasting dataset to explore:
+1. Imports `pandas`, `numpy`, and `pathlib`.
+2. Loads the features, stores, test, and training CSV files.
+3. Prints the shape of each loaded dataset.
+4. Displays the features dataset schema with `features.info()`.
+5. Converts the `Date` columns to pandas datetime values.
+6. Fills missing markdown, CPI, and unemployment values in the features data.
+7. Merges store and feature data with the training sales data.
+8. Compares holiday and non-holiday sales and summarizes sales by store type.
+9. Aggregates weekly sales by date and saves the trend chart to `weekly sales trend.png`.
 
-- sales trends over time
-- holiday vs non-holiday sales behavior
-- store-level performance by type and size
-- missing value handling and feature preparation
-- data merging and feature engineering basics for forecasting
+The notebook currently focuses on data preparation and exploratory data analysis. A forecasting model has not yet been added.
 
-This repository is designed as a practical baseline for a forecasting workflow and can be extended with regression, time series, or ensemble models.
+## Sales trend
 
-## Dataset
+![Total weekly sales over time](weekly%20sales%20trend.png)
 
-The project uses the following files from the `Data/` directory:
+## Files
 
-- `features.csv`
-- `stores.csv`
-- `train.csv`
-- `test.csv`
+- `Notebook.ipynb`: notebook containing the data-loading and transformation code
+- `weekly sales trend.png`: generated chart of total weekly sales over time
+- `features.csv`: feature data, including the `Date` column
+- `stores.csv`: store data
+- `test.csv`: test data
+- `train.csv`: training data
 
-These data sources include store metadata, weekly sales records, and external features such as CPI, unemployment, and holiday flags.
+## Requirements
 
-## Repository Structure
-
-```text
-Walmart Sales Forecasting/
-├── Data/
-│   ├── features.csv
-│   ├── stores.csv
-│   ├── test.csv
-│   └── train.csv
-├── Notebook.ipynb
-├── README.md
-├── requirements.txt
-├── .gitignore
-└── .ipynb_checkpoints/
-```
-
-## Tech Stack
-
-- Python 3.9+
-- Jupyter Notebook
+- Python 3.9 or newer
 - pandas
 - numpy
-- matplotlib
-- seaborn
+- Jupyter, or VS Code with the Jupyter extension
 
-## Setup
-
-1. Clone the repository:
+Install the dependencies:
 
 ```bash
-git clone https://github.com/<your-username>/Walmart-Sales-Forecasting.git
-cd Walmart-Sales-Forecasting
+python -m pip install pandas numpy jupyter
 ```
 
-2. Create a virtual environment:
+## Run the notebook
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
+1. Open `Notebook.ipynb` in Jupyter or VS Code.
+2. Select a Python environment with the required packages.
+3. Run the cells from top to bottom.
+
+The loader looks for CSV files inside `Data/` first. If that directory is not present, it loads the files from the repository root.
+
+## Data layout
+
+For the local project layout, place the CSV files in a `Data/` directory:
+
+```text
+Data/
+├── features.csv
+├── stores.csv
+├── test.csv
+└── train.csv
 ```
-
-On Windows PowerShell:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-3. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run the Notebook
-
-Open `Notebook.ipynb` in Jupyter or VS Code with the Jupyter extension and run the cells in order.
-
-## Highlights from the Notebook
-
-The notebook currently covers:
-
-- loading datasets from `Data/`
-- checking dataset shapes and null values
-- converting date columns to datetime
-- handling missing values in markdown and economic features
-- merging train and feature data
-- exploring holiday impact on sales
-- analyzing sales trends over time
-- evaluating store type sales patterns
-
-## Project Goal
-
-The main objective is to build a robust sales forecasting pipeline that can estimate weekly sales based on historical data and store-level features.
-
-## Next Steps
-
-Potential extensions for this project include:
-
-- feature engineering for time series forecasting
-- train/test validation splits
-- regression models such as XGBoost, Random Forest, or Gradient Boosting
-- evaluation using RMSE and MAE
-- deployment or API-ready prediction scripts
-
-## License
-
-This project is for educational and research purposes. Add a license if you plan to publish it publicly.
-
-## Author
-
-This project is maintained as a personal data science portfolio project for Walmart sales analysis and forecasting.
